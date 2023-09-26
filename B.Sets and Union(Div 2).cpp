@@ -17,7 +17,7 @@ ll lcm(ll num1, ll num2) {return (num1*num2)/__gcd(num1, num2);}
 
 void solve(){
     ll n;
-
+    cin>>n;
     vector<set<ll>>v(n);
     set<ll>s;
 
