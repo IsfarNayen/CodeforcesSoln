@@ -16,32 +16,22 @@ ll lcm(ll num1, ll num2) {return (num1*num2)/__gcd(num1, num2);}
 //divisors of a number ==> for(ll i=2 ; i*i<=n ; i++){if(n%i==0){divisors.push_back(i);if(n/i != i){divisors.push_back(n/i);}}}
 
 void solve(){
-    ll n;
-    string x , y , z , p;
-    cin>>x;
-    n = x.size();
+    ll n , m , d;
+    cin>>n>>m>>d;
+
     vector<ll>v;
-
-    ll A1 = 0 , cnt = 0 , mn = INT_MAX;
-    bool flag1 = false , flag2 = false;
-
-    for(ll i = 0 ; i <= n ; i++){
-        if(x[i] == 'A') A1++;
-
-        else if(x[i] == 'B' || i == n){
-            cnt += A1;
-            v.pb(A1);
-            mn = min(A1 , mn);
-            A1 = 0;
-        }
-
-        if(x[i] == 'B') flag1 = true;
-        if(x[i] == 'B' && x[i + 1] == 'B') flag2 = true;
+    for(ll i = 1 ; i <= m ; i++){
+        ll x;
+        cin>>x;
+        v.pb(x);
     }
 
-    if(flag1 && flag2) cout<<cnt<<endl;
-    else if(flag1) cout<<cnt - mn<<endl;
-    else cout<<0<<endl;
+    vector<ll>occp(n + 1) = {0};
+
+    for(ll i = 1 ; i <= n ; i++){
+        if(i = 1) v[i] = 1;
+    }
+
 }
 
 int32_t main(){
