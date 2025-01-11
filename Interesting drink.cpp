@@ -1,4 +1,4 @@
-//Problem Link : 
+//Problem Link : https://codeforces.com/problemset/problem/706/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -81,12 +81,6 @@ ll mulmod(ll a , ll b , ll mod){
         b /= 2;
     }
     return ans;
-}
-
-bool ok(int mid , int tar , vector<int>v){
-    int sum = 0;
-    for(int i = 0 ; i < v.size() ; i++) sum += v[i] / mid;
-    return false;
 }
 
 int32_t main(){

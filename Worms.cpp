@@ -1,4 +1,4 @@
-//Problem Link : https://www.spoj.com/problems/MAIN8_C/en/
+//Problem Link : https://codeforces.com/problemset/problem/474/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -83,33 +83,22 @@ ll mulmod(ll a , ll b , ll mod){
     return ans;
 }
 
-bool ok(int mid , int tar , vector<int>v){
-    int sum = 0;
-    for(int i = 0 ; i < v.size() ; i++) sum += v[i] / mid;
-    return false;
-}
-
-void solve(){
-    int n , students;
-    cin >> n >> students;
-
-    vector<int>v(n);
-    for(int i = 0 ; i < n ; i++) cin >> v[i];
-
-    int l = 1 , r = *max_element(v.begin() , v.end());
-
-    while(l <= r){
-        int mid = l + (r - l) / 2;
-        if(ok(mid , students , v)) l = mid + 1;
-        else r = mid - 1;
-    }
-    cout << r << el;
-}
-
 int32_t main(){
     ISFAR();
-    ll n;
-    cin>>n;
-    while(n--)solve();
+    int n;
+    cin >> n;
+    vector<int> v(n) , sum(n + 1 , 0);
+    for(int i = 0 ; i < n ; i++) cin >> v[i];
+    for(int i = 1 ; i <= n ; i++) sum[i] = sum[i - 1] + v[i - 1];
+    //for(int i = 1 ; i <= n ; i++) cout << sum[i] << " ";
+    
+    int q;
+    cin >> q;
+    while(q--){
+        int x;
+        cin >> x;
+        cout << lower_bound(sum.begin() , sum.end() , x) - sum.begin() << el;
+    }
+
     return 0;
 }
