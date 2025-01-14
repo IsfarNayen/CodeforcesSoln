@@ -20,7 +20,7 @@ int32_t main(){
 
     if(m <= n){
         for(int i = m - 1 ; i >= 0 ; i--){
-            auto it = st.upper_bound(s[i]);   
+            auto it = upper_bound(st.begin() , st.end() , s[i]);   
             if(it != st.end()){
                 s[i] = *it;
                 for(int j = 0 ; j <= i ; j++) cout << s[j];
