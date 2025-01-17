@@ -1,4 +1,4 @@
-//Problem Link :
+//Problem Link : https://cses.fi/problemset/task/1620
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -88,8 +88,8 @@ void solve(){
 
 }
 
-bool ok(int mid , int tar, vector<int>v){
-    int cnt = 0;
+bool ok(ll mid , int tar, vector<int>v){
+    ll cnt = 0;
     for(int i = 0 ; i < v.size() ; i++){
         cnt += mid / v[i];
         if(cnt >= tar) return true;
@@ -103,10 +103,10 @@ int32_t main(){
     cin >> n >> m;
     vector<int>v(n);
     for(int i = 0 ; i < n ; i++) cin >> v[i];
-    int l = 1 , r = 1e9;
+    ll l = 1 , r = 1e18;
 
     while(l <= r){
-        int mid = l + (r - l) / 2;
+        ll mid = l + (r - l) / 2;
         if(ok(mid , m , v)) r = mid - 1;
         else l = mid + 1;
     }
