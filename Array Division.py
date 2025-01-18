@@ -1,43 +1,34 @@
-import sys
-from typing import List
+#Problem_link: https://cses.fi/problemset/task/1085
+#Problem: Array Division
 
-def read_int() -> List[int]:
-    return list(map(int, sys.stdin.readline().split()))
-
-def can_divide(max_sum: int, nums: List[int], k: int) -> bool:
-    if max(nums) > max_sum:
-        return False
-    
-    curr_sum = 0
-    groups = 1
-    
-    for num in nums:
-        if curr_sum + num > max_sum:
-            groups += 1
-            curr_sum = num
-        else:
-            curr_sum += num
-            
-        if groups > k:
+def ok(mid , v , tar):
+    for i in range(len(v)):
+        if v[i] > mid:
             return False
     
-    return True
-
-def solve() -> None:
-    n, k = read_int()
-    nums = read_int()
-    
-    left = max(nums)
-    right = sum(nums)
-    
-    while left < right:
-        mid = (left + right) // 2
-        if can_divide(mid, nums, k):
-            right = mid
+    sum = 0
+    cnt = 1
+    for i in range(len(v)):
+        if sum + v[i] > mid:
+            cnt += 1
+            sum = v[i]
         else:
-            left = mid + 1
-            
-    print(left)
+            sum += v[i]
+    
+    return cnt <= tar
+        
 
-if __name__ == "__main__":
-    solve()
+n , m = map(int, input().split())
+v = list(map(int, input().split()))
+
+l = 0
+r = 10**18 + 1
+
+while l <= r:
+    mid = l + (r - l)//2
+    if ok(mid , v , m):
+        r = mid - 1
+    else:
+        l = mid + 1
+        
+print(l)
