@@ -1,6 +1,7 @@
-from functools import cmp_to_key
-
 # Problem statement: https://www.spoj.com/problems/SORT2D/en/
+#due to strict time limit, code written in python had time limit exceeded, so I had to write the same code in C++ and it got accepted.
+
+from functools import cmp_to_key
 
 def solve():
     n = int(input())
